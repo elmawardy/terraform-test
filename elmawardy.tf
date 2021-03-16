@@ -2,7 +2,7 @@ locals {
   cluster_name = "elmawardy-eks"
   helm_release_name = "elmawardy-terraform"
   helm_chart_name = "elmawardy-terraform"
-  helm_chart_version = "0.1.1"
+  helm_chart_version = "0.1.0"
   helm_repo_url = "https://elmawardy.github.io/terraform/charts"
 }
 

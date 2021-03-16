@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  elmawardy-terraform:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2021-03-17T00:12:07.6954324+02:00"
+    description: A 'hello world' helm chart that's used by terraform 1.0
+    digest: 37c81755415c4253004f7929026b39c67258092da5125586eec4ffecc4a22e1c
+    name: elmawardy-terraform
+    type: application
+    urls:
+    - https://elmawardy.github.io/terraform/helm/elmawardy-terraform-0.1.0.tgz
+    version: 0.1.0
+generated: "2021-03-17T00:12:07.690722+02:00"

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elmawardy-terraform
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: elmawardy-terraform
+  template:
+    metadata:
+      labels:
+        app: elmawardy-terraform
+    spec:
+      containers:
+      - name: elmawardy-terraform
+        image: elmawardy/terraform:1.0
+        ports:
+        - containerPort: 8080
