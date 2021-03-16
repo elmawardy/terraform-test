@@ -1,0 +1,9 @@
+.terraform/*
+.terraform.lock.hcl
+*.tfplan
+elmawardy-eks.tf-old
+variables.tfvars
+kubeconfig_my-eks-cluster
+terraform.tfstate.backup
+kubeconfig_elmawardy-eks
+*.tfstate
