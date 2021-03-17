@@ -3,7 +3,7 @@ locals {
   helm_release_name = "elmawardy-terraform"
   helm_chart_name = "elmawardy-terraform"
   helm_chart_version = "0.1.0"
-  helm_repo_url = "https://elmawardy.github.io/terraform/helm"
+  helm_repo_url = "https://elmawardy.github.io/terraform-test/helm"
 }
 
 provider "aws" {
