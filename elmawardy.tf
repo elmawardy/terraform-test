@@ -2,7 +2,8 @@ locals {
   cluster_name = "elmawardy-eks"
   helm_release_name = "elmawardy-terraform"
   helm_chart_name = "elmawardy-terraform"
-  helm_chart_version = "0.1.0"
+  deployment_port = "8080"
+  helm_chart_version = "0.1.1"
   helm_repo_url = "https://elmawardy.github.io/terraform-test/helm"
 }
 
@@ -101,3 +102,24 @@ resource "helm_release" "elmawardy_terraform" {
     type  = "string"
   }
 }
+
+
+# data "aws_region" "current" {}
+# data "aws_eks_cluster" "target" {
+#   name = local.cluster_name
+# }
+
+# module "alb_ingress_controller" {
+#   source  = "iplabs/alb-ingress-controller/kubernetes"
+#   version = "3.1.0"
+
+#   providers = {
+#     kubernetes = "kubernetes.eks"
+#   }
+
+#   k8s_cluster_type = "eks"
+#   k8s_namespace    = "kube-system"
+
+#   aws_region_name  = data.aws_region.current.name
+#   k8s_cluster_name = data.aws_eks_cluster.target.name
+# }
