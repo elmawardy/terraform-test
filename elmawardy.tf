@@ -102,22 +102,23 @@ resource "helm_release" "elmawardy_terraform" {
 }
 
 
-# data "aws_region" "current" {}
-# data "aws_eks_cluster" "target" {
-#   name = local.cluster_name
-# }
+resource "kubernetes_service" "example" {
+  metadata {
+    name = local.helm_release_name
+  }
+  spec {
+    selector = {
+      app = local.helm_release_name
+    }
+    port {
+      port        = 80
+      target_port = local.deployment_port
+    }
 
-# module "alb_ingress_controller" {
-#   source  = "iplabs/alb-ingress-controller/kubernetes"
-#   version = "3.1.0"
+    type = "LoadBalancer"
+  }
+}
 
-#   providers = {
-#     kubernetes = "kubernetes.eks"
-#   }
-
-#   k8s_cluster_type = "eks"
-#   k8s_namespace    = "kube-system"
-
-#   aws_region_name  = data.aws_region.current.name
-#   k8s_cluster_name = data.aws_eks_cluster.target.name
-# }
+output "service_url" {
+  value = kubernetes_service.example.load_balancer_ingress.0.hostname
+}
