@@ -82,9 +82,7 @@ module "my-eks-cluster" {
 
 resource "helm_release" "elmawardy_terraform" {
   name       = local.helm_release_name
-  repository = local.helm_repo_url
-  chart      = local.helm_chart_name
-  version    = local.helm_chart_version
+  chart      = "${local.helm_repo_url}/${local.helm_release_name}-${local.helm_chart_version}.tgz"
 
   set {
     name  = "cluster.enabled"
